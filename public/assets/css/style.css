@@ -1,0 +1,16 @@
+.articleDiv {
+    border: 1px solid #000;
+    margin: 3%;
+    padding: 2%;
+    overflow: hidden;
+    height: fit-content;
+}
+
+.articleDiv a {
+    float: right;
+    margin-left: 5px;
+}
+
+.articleDiv h5 {
+    float: left;
+}

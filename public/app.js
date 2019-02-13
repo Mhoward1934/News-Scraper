@@ -1,10 +1,19 @@
 // Grab the articles as a json
-$.getJSON("/articles", function(data) {
-  // For each one
-  for (var i = 0; i < data.length; i++) {
-    // Display the apropos information on the page
-    $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
-  }
+$(".scrape-new").on("click", function () {
+  
+  $.getJSON("/articles", function(data) {
+    // For each one
+    for (var i = 0; i < data.length; i++) {
+      // Display the apropos information on the page
+     const newArticle = `<div data-id=${data[i]._id} class="articleDiv">
+                            <h5>${data[i].title}</h5>
+                            <a href=${data[i].link}><i class="fas fa-link"></i></a>
+                            <a><i class="far fa-save"></i></a>
+                            <a><i class="fas fa-pencil-alt"></i></a>`;
+     
+      $("#articles").prepend(newArticle);
+    }
+  });
 });
 
 
