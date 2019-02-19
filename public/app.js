@@ -7,21 +7,29 @@ $(".scrape-new").on("click", function () {
       // Display the apropos information on the page
      const newArticle = `<div data-id=${data[i]._id} class="articleDiv">
                             <h5>${data[i].title}</h5>
-                            <a href=${data[i].link}><i class="fas fa-link"></i></a>
-                            <a><i class="far fa-save"></i></a>
-                            <a><i class="fas fa-pencil-alt"></i></a>`;
+                            <a href=${data[i].link}><i class="fas fa-link fa-3x"></i></a>
+                            <a><i class="far fa-save fa-3x"></i></a>
+                            <a><i class="fas fa-pencil-alt fa-3x"></i></a>`;
      
       $("#articles").prepend(newArticle);
     }
   });
 });
 
+$(".fa-save").on("click", function (){
+  if("#articles" === {saved: true}) {
+
+    $("#articles").appendTo("#savedArticles");
+  }
+
+})
+
 
 // Whenever someone clicks a p tag
-$(document).on("click", "p", function() {
+$(document).on("click", ".fa-save", function() {
   // Empty the notes from the note section
   $("#notes").empty();
-  // Save the id from the p tag
+  // Save the id from the pencil tag
   var thisId = $(this).attr("data-id");
 
   // Now make an ajax call for the Article
@@ -52,18 +60,18 @@ $(document).on("click", "p", function() {
 });
 
 //attempted to add functionality to Scrape New Articles button, it is still manual via the browser.
-$(document).on("click", ".scrape-new", function(){
-  $.ajax({
-    method: "GET",
-    url: "/scrape",
-    data: {
-      title: $("#articles")
-    }
-  })
-  .then(function(data){
-    console.log(data);
-  })
-});
+// $(document).on("click", ".scrape-new", function(){
+//   $.ajax({
+//     method: "GET",
+//     url: "/scrape",
+//     data: {
+//       title: $("#articles")
+//     }
+//   })
+//   .then(function(data){
+//     console.log(data);
+//   })
+// });
 
 // When you click the savenote button
 $(document).on("click", "#savenote", function() {
