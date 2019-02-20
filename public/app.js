@@ -16,7 +16,20 @@ $(".scrape-new").on("click", function () {
   });
 });
 
-$(".fa-save").on("click", function (){
+$(document).on("click", ".fa-save", function (){
+  
+  const parent = $(this).parents(".articleDiv")
+  
+  const articleObj = {
+    
+    id: parent.attr("data-id"),
+    title: parent.text().trim(),
+    link: parent.children("a").attr("href")
+    
+  };
+
+  
+  
   if("#articles" === {saved: true}) {
 
     $("#articles").appendTo("#savedArticles");
@@ -26,7 +39,7 @@ $(".fa-save").on("click", function (){
 
 
 // Whenever someone clicks a p tag
-$(document).on("click", ".fa-save", function() {
+$(document).on("click", "p", function() {
   // Empty the notes from the note section
   $("#notes").empty();
   // Save the id from the pencil tag
