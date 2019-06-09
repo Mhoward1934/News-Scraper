@@ -27,8 +27,6 @@ $(document).on("click", ".fa-save", function (){
     link: parent.children("a").attr("href")
     
   };
-
-  
   
   if("#articles" === {saved: true}) {
 
